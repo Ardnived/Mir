@@ -1,11 +1,1 @@
-﻿package  {
-	
-	public class GrappleHook extends Entity{
-
-		public function GrappleHook() {
-			// constructor code
-		}
-
-	}
-	
-}
+﻿package  {		public class GrappleHook extends Entity {		static const COOLDOWN:Number = 5;		var cooldown:Number = 0;				public override function onAddedToStage(event:Event) {			super.onAddedToStage(event);		}				public override function onTick() {			super.onTick();			if ( this.hitTestObject(Game.gameContainer) ) {				/* Just conceptual pseudo code.				if ( this.hitTestObject(Game.guards) ) {					guard.stun();				}				if ( this.hitTestObject(Game.grapplepoints) ) {					Game.hero.grapple(grapplepoint);				}				*/			}		}				public function use() {			this.cooldown = COOLDOWN;		}	}	}
