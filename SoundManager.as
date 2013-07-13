@@ -1,8 +1,9 @@
 ﻿package 
 {
 	import flash.media.SoundChannel;
+	import flash.events.Event;
 
-	public class SoundManager extends Game
+	public class SoundManager
 	{
 		//initialing sound channel
 		var SndChannel:SoundChannel;
