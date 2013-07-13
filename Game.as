@@ -28,6 +28,8 @@
 			stage.addEventListener(MouseEvent.CLICK,onMouseClick);
 			
 			addChild(gameContainer);
+			
+			startMusic();
 		}//end method	
 		
 		function startMusic(){
