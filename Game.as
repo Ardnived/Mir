@@ -26,19 +26,19 @@
 		//Keyboard Handler Functions
 		function keyDownHandler(e:KeyboardEvent):void
 		{
-			if (e.keyCode == 65)
+			if (e.keyCode == 65 || e.keyCode == 37)
 			{
 				gameContainer.isLeft = true;
 			}
-			if (e.keyCode == 68)
+			if (e.keyCode == 68 || e.keyCode == 39)
 			{
 				gameContainer.isRight = true;
 			}
-			if (e.keyCode == 87)
+			if (e.keyCode == 87 || e.keyCode == 38)
 			{
 				gameContainer.isUp = true;
 			}
-			if (e.keyCode == 83)
+			if (e.keyCode == 83 || e.keyCode == 40)
 			{
 				gameContainer.isDown = true;
 			}
@@ -50,19 +50,19 @@
 
 		function keyUpHandler(e:KeyboardEvent):void
 		{
-			if (e.keyCode == 65)
+			if (e.keyCode == 65 || e.keyCode == 37)
 			{
 				gameContainer.isLeft = false;
 			}
-			if (e.keyCode == 68)
+			if (e.keyCode == 68 || e.keyCode == 39)
 			{
 				gameContainer.isRight = false;
 			}
-			if (e.keyCode == 87)
+			if (e.keyCode == 87 || e.keyCode == 38)
 			{
 				gameContainer.isUp = false;
 			}
-			if (e.keyCode == 83)
+			if (e.keyCode == 83 || e.keyCode == 40)
 			{
 				gameContainer.isDown = false;
 			}
