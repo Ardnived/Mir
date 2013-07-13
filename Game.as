@@ -1,10 +1,12 @@
 ﻿package 
 {
 	import flash.display.MovieClip;
-	import flash.events.Event;
 
 	public class Game extends MovieClip
 	{
+		//Setting up Keyboard Inputs
+		static var inputManager:InputManager;
+
 		//Setting up the level
 		static var gameContainer:GameLevel;
 
@@ -14,19 +16,24 @@
 		public function Game()
 		{
 			// constructor code
-			this.addEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
+			initialize();
 		}//end method
 
-		public function onAddedToStage(event:Event)
+		public function initialize()
 		{
-			//remove the intializer
-			this.removeEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
+			//Initializing Input Manager
+			inputManager = new InputManager();
+			addChild(inputManager);
+
+			//Initializing Game Level
+			gameContainer = new GameLevel();
+			addChild(gameContainer);
 
 			//Initializing Hero
-			mir = new Hero();
-			mir.x = stage.width / 2;
-			mir.y = 0;
-			addChild(ground);
+			hero = new Hero();
+			hero.x = stage.width / 2;
+			hero.y = 0;
+			addChild(hero);
 		}//end Method
 	}
 }

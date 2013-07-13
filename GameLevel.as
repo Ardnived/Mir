@@ -1,8 +1,9 @@
 ﻿package 
 {
 	import flash.events.Event;
+	import flash.display.MovieClip;
 
-	public class GameLevel extends Game
+	public class GameLevel extends MovieClip
 	{	
 		//Setting up variables
 		var level:Number;
@@ -13,13 +14,13 @@
 		public function GameLevel()
 		{
 			// constructor code
-			this.addEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
+			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}//end method
 
-		public override function onAddedToStage(event:Event)
+		public function onAddedToStage(event:Event)
 		{
 			//remove the intializer
-			this.removeEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
+			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 
 			//Set Variables
 			level = 1;
@@ -27,9 +28,9 @@
 			//Initializing Ground
 			ground = new Platform();
 			ground.x = stage.width/2;
-			ground.width = stage;
+			ground.width = stage.width;
 			ground.y = stage.height;
-			addChild(ground);		
+			addChild(ground);
 		}//end Method
 
 	}

@@ -3,8 +3,8 @@
 	import flash.events.KeyboardEvent;
 	
 	public class Hero extends Entity {
-		public static const speed:Float = 20;
-		public static const jump:Float = 30;
+		public static const speed:Number = 20;
+		public static const jump:Number = 30;
 		var isLatch:Boolean = false;
 		var isCrouch:Boolean = false;
 		
@@ -16,25 +16,25 @@
 		
 		public override function onTick() {
 			super.onTick();
-			if ( InputManager.isLeft ) {
+			if (Game.inputManager.isLeft) {
 				this.velocityX -= Hero.speed;
 			}
-			if ( InputManager.isRight ) {
+			if (Game.inputManager.isRight ) {
 				this.velocityX += Hero.speed;
 			}
-			if ( InputManager.isJump ) {
+			if (Game.inputManager.isJump ) {
 				this.velocityY -= Hero.speed;
 			}
 		}
 		
 		public function keyDownHandler(event:KeyboardEvent) {
-			if ( InputManager.CROUCH.indexOf(event.keyCode) ) {
+			if (Game.inputManager.CROUCH.indexOf(event.keyCode) ) {
 				this.isCrouch = true;
 			}
 		}
 		
 		public function keyUpHandler(event:KeyboardEvent) {
-			if ( InputManager.CROUCH.indexOf(event.keyCode) ) {
+			if (Game.inputManager.CROUCH.indexOf(event.keyCode) ) {
 				this.isCrouch = false;
 			}
 		}

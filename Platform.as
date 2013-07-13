@@ -1,5 +1,6 @@
 ﻿package  {
 	import flash.display.MovieClip;
+	import flash.events.Event;
 	
 	public class Platform extends Layout{
 
@@ -9,18 +10,18 @@
 		public function Platform() {
 			
 			//intializer
-			this.addEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
+			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
 
 		public override function onAddedToStage(event:Event)
 		{
 			//remove the intializer
-			this.removeEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
+			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			//tempPlayer holds the reference to the hero
 			tempPlayer = new Hero();
-			tempPlayer = Game.GameLevel.Hero;
+			tempPlayer = Game.hero;
 			//this methodchecks if there is a collision
-			this.addEventListener(event.Event.ENTER_FRAME, checkCollision);
+			this.addEventListener(Event.ENTER_FRAME, checkCollision);
 		}//end method
 		
 		public function checkCollision(event:Event)
