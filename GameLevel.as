@@ -27,10 +27,10 @@
 		var UpBump:Boolean;
 		var DownBump:Boolean;
 
-		var RightBumpPoint:Point = new Point(15,0);
-		var LeftBumpPoint:Point = new Point(-15,0);
-		var UpBumpPoint:Point = new Point(0,-15);
-		var DownBumpPoint:Point = new Point(0,15);
+		var RightBumpPoint:Point = new Point(16,0);
+		var LeftBumpPoint:Point = new Point(-16,0);
+		var UpBumpPoint:Point = new Point(0,-16);
+		var DownBumpPoint:Point = new Point(0,16);
 
 		//Speed Variables
 		var xSpeed:Number = 0;
