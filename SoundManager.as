@@ -8,6 +8,7 @@
 		var SndChannel:SoundChannel;
 
 		//list of sounds
+		var bgSound:bgSnd = new bgSnd();
 
 		/* Example instantiated
 		var GUARD_ALERT:Sound = new Sound(new URLRequest("guard_alert.mp3")); 
