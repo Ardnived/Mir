@@ -1,51 +1,1 @@
-﻿package 
-{
-	import flash.geom.Point;
-	import flash.events.Event;
-	import flash.display.MovieClip;
-
-	public class Entity extends MovieClip
-	{
-
-		//The Force Constants
-		public const FRICTION:Number = 0.5;
-		public const AIRFRICTION:Number = 0.9;
-		public const GRAVITY:Number = 1.8;
-		public const MAXSPEED:Number = 30;
-		public const SPEED:Number = 10;
-		public const JUMP:Number = -32;
-		
-		var velocityX:Number = 0;
-		var velocityY:Number = 0;
-		var animationFrame:Number;
-		var spawnPoint:Point;
-
-
-		public function Entity()
-		{
-			//intializer
-			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-		}//end method
-
-		public function onAddedToStage(event:Event)
-		{
-			//remove the intializer
-			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
-			this.addEventListener(Event.ENTER_FRAME, onTick);
-		}//end Method
-
-		//this method destroys the object
-		public function die()
-		{
-			this.parent.removeChild(this);
-		}
-		//TODO: Remove all references, particularly event listeners. Or make sure that the references are weak.;
-		
-		public function onTick(event:Event)
-		{
-			this.x += this.velocityX;
-			this.y += this.velocityY;
-		}
-	}
-
-}
+﻿package {	import flash.geom.Point;	import flash.events.Event;	import flash.display.MovieClip;	public class Entity extends MovieClip	{		//The Force Constants		public const FRICTION:Number = 0.5;		public const AIRFRICTION:Number = 0.9;		public const GRAVITY:Number = 1.8;		public const MAXSPEED:Number = 30;		public const SPEED:Number = 10;		public const JUMP:Number = -32;				var velocityX:Number = 0;		var velocityY:Number = 0;		var animationFrame:Number;		var spawnPoint:Point;		public function Entity()		{			//intializer			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);		}//end method		public function onAddedToStage(event:Event)		{			//remove the intializer			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);			this.addEventListener(Event.ENTER_FRAME, onTick);		}//end Method		//this method destroys the object		public function die()		{			this.parent.removeChild(this);		}		//TODO: Remove all references, particularly event listeners. Or make sure that the references are weak.;				public function onTick(event:Event)		{			this.x += this.velocityX;			this.y += this.velocityY;		}	}}
