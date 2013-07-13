@@ -1,6 +1,7 @@
 ﻿package 
 {
 	import flash.events.KeyboardEvent;
+	import flash.display.Stage;
 	import flash.display.MovieClip;
 
 	public class InputManager extends MovieClip
@@ -24,8 +25,8 @@
 		public function InputManager()
 		{
 			// constructor code
-			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
-			stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
+			this.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
+			this.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
 		}
 
 		//Keyboard Handler Functions

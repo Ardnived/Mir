@@ -8,7 +8,6 @@
 		var tempPlayer:Hero;
 		
 		public function Platform() {
-			
 			//intializer
 			this.addEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 		}
@@ -18,7 +17,6 @@
 			//remove the intializer
 			this.removeEventListener(Event.ADDED_TO_STAGE, onAddedToStage);
 			//tempPlayer holds the reference to the hero
-			tempPlayer = new Hero();
 			tempPlayer = Game.hero;
 			//this methodchecks if there is a collision
 			this.addEventListener(Event.ENTER_FRAME, checkCollision);

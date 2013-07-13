@@ -6,7 +6,7 @@
 	{
 		//Setting up Keyboard Inputs
 		static var inputManager:InputManager;
-
+		
 		//Setting up the level
 		static var gameContainer:GameLevel;
 
@@ -23,12 +23,11 @@
 		{
 			//Initializing Input Manager
 			inputManager = new InputManager();
-			addChild(inputManager);
-
+			
 			//Initializing Game Level
 			gameContainer = new GameLevel();
 			addChild(gameContainer);
-
+			
 			//Initializing Hero
 			hero = new Hero();
 			hero.x = stage.width / 2;
