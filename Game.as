@@ -1,13 +1,17 @@
-﻿package  {
+﻿package 
+{
 	import flash.display.MovieClip;
-	
-	public class Game extends MovieClip{
+
+	public class Game extends MovieClip
+	{
 		var input:InputManager;
-		
-		public function Game() {
+
+		public function Game()
+		{
 			// constructor code
+			input = new InputManager  ;
 		}
 
 	}
-	
+
 }
