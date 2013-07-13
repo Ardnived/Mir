@@ -25,8 +25,8 @@
 		public function InputManager()
 		{
 			// constructor code
-			this.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
-			this.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
+			stage.addEventListener(KeyboardEvent.KEY_DOWN, keyDownHandler);
+			stage.addEventListener(KeyboardEvent.KEY_UP, keyUpHandler);
 		}
 
 		//Keyboard Handler Functions

@@ -5,7 +5,7 @@
 	public class Game extends MovieClip
 	{
 		//Setting up Keyboard Inputs
-		static var inputManager:InputManager;
+		//static var inputManager:InputManager;
 		
 		//Setting up the level
 		static var gameContainer:GameLevel;
@@ -26,7 +26,7 @@
 		public function initialize()
 		{
 			//Initializing Input Manager
-			inputManager = new InputManager();
+			//inputManager = new InputManager();
 			
 			//Initializing Game Level
 			gameContainer = new GameLevel();
@@ -34,7 +34,7 @@
 			
 			//Initializing Hero
 			hero = new Hero();
-			hero.x = stage.width / 2;
+			hero.x = 0;
 			hero.y = 0;
 			addChild(hero);
 		}//end Method
