@@ -29,8 +29,8 @@
 
 		var RightBumpPoint:Point = new Point(15,0);
 		var LeftBumpPoint:Point = new Point(-15,0);
-		var UpBumpPoint:Point = new Point(0,-30);
-		var DownBumpPoint:Point = new Point(0,30);
+		var UpBumpPoint:Point = new Point(0,-15);
+		var DownBumpPoint:Point = new Point(0,15);
 
 		//Speed Variables
 		var xSpeed:Number = 0;
