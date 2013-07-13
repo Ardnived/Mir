@@ -1,11 +1,12 @@
 ﻿package 
 {
+	import flash.events.Event;
 
 	public class GameLevel extends Game
-	{		
+	{	
+		//Setting up variables
 		var level:Number;
-		//Setting up Characters
-		var mir:Hero;
+		
 		//Setting up Platforms
 		var ground:Platform;
 
@@ -28,13 +29,7 @@
 			ground.x = stage.width/2;
 			ground.width = stage;
 			ground.y = stage.height;
-			addChild(ground);
-			
-			//Initializing Hero
-			mir = new Hero();
-			mir.x = stage.width/2;
-			mir.y = 0;
-			addChild(ground);			
+			addChild(ground);		
 		}//end Method
 
 	}
