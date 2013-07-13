@@ -1,6 +1,7 @@
 ﻿package 
 {
 	import flash.display.MovieClip;
+	import flash.events.Event;
 
 	public class Game extends MovieClip
 	{

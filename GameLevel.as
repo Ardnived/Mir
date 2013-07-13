@@ -16,7 +16,7 @@
 			this.addEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
 		}//end method
 
-		public function onAddedToStage(event:Event)
+		public override function onAddedToStage(event:Event)
 		{
 			//remove the intializer
 			this.removeEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);
