@@ -1,11 +1,1 @@
-﻿package  {
-	
-	public class Entity extends Collision{
-
-		public function Entity() {
-			// constructor code
-		}
-
-	}
-	
-}
+﻿package  {	import flash.geom.Point;		public class Entity{		var speed:Number;		var animationFrame:Number;		var spawnPoint:Point;						public function Entity() 		{			//intializer			this.addEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);		}//end method				public function onAddedToStage(event.Event)		{			//remove the intializer			this.removeEventListener(event.Event.ADDED_TO_STAGE, onAddedToStage);		}//end Method				//this method destroys the object		public function Destructor(deadMv:MovieClip){					}//end Method	}	}
