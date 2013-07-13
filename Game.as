@@ -4,12 +4,13 @@
 
 	public class Game extends MovieClip
 	{
-		var input:InputManager;
+		public static const gameContainer:GameLevel;
 
 		public function Game()
 		{
 			// constructor code
-			input = new InputManager  ;
+			gameContainer = new GameLevel();
+			addChild(gameContainer);			
 		}
 
 	}
