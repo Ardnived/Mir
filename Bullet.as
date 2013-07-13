@@ -1,11 +1,1 @@
-﻿package  {
-	
-	public class Bullet extends Entity{
-
-		public function Bullet() {
-			// constructor code
-		}
-
-	}
-	
-}
+﻿package  {		public class Bullet extends Entity {				public override function onAddedToStage(event:Event) {			this.addEventListener(event.Event.ENTER_FRAME, onTick, false, true);		}				public function onTick() {			if ( this.hitTestObject(Game.gameContainer) ) {				if ( this.hitTestObject(Game.hero) ) {					Game.hero.die();				}				this.die();			}		}	}	}
