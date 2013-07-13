@@ -1,11 +1,1 @@
-﻿package  {
-	
-	public class SoundManager extends Game{
-
-		public function SoundManager() {
-			// constructor code
-		}
-
-	}
-	
-}
+﻿package  {		public class SoundManager extends Game {		/* Example instantiated		var GUARD_ALERT:Sound = new Sound(new URLRequest("guard_alert.mp3")); 				And then when you want to player the sound you call this,		SoundManager.GUARD_ALERT.play();		*/	}	}
