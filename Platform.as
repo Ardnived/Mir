@@ -35,6 +35,7 @@
 			//if it hits below
 			if (this.hitTestObject(Game.hero) && Game.hero.y <= this.y + this.height )
 			{
+				trace("touching");
 				Game.hero.y = this.y + this.height;
 				Game.hero.isCollidingBelow = true;
 			}else{
