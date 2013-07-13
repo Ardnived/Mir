@@ -15,7 +15,7 @@
 		}
 		
 		public override function onTick() {
-			super.onTick();
+			//super.onTick();
 			if (Game.inputManager.isLeft) {
 				this.velocityX -= Hero.speed;
 			}

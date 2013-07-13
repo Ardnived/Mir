@@ -12,6 +12,10 @@
 
 		//Setting up Characters
 		static var hero:Hero;
+		
+		//Setting up Variables
+		static var scrollX:Number;
+		static var scrollY:Number;
 
 		public function Game()
 		{
