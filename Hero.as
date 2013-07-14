@@ -46,6 +46,10 @@
 			Game.gameContainer.checkP.lastestCheckpoint.x = Game.gameContainer.scrollX;
 			Game.gameContainer.checkP.lastestCheckpoint.y = Game.gameContainer.scrollY;
 		}
+		
+		public override function die(){
+			isDead = true;
+		}
 
 
 		public override function onTick(event:Event)
