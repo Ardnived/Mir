@@ -1,6 +1,7 @@
 ﻿package 
 {
 	import flash.events.Event;
+	import flash.geom.Point;
 
 	public class GrapplePoint extends GrappleItem
 	{
@@ -15,7 +16,7 @@
 		{
 			if (this.hitTestObject(Game.gameContainer.hook))
 			{
-				Pos = new Point(this.x - Game.gameContainer.levelMap.x,this.y - Game.gameContainer.levelMap.y);
+				var Pos = new Point(this.x - Game.gameContainer.levelMap.x,this.y - Game.gameContainer.levelMap.y);
 				Game.gameContainer.move(Pos.x,Pos.y);
 			}
 		}
