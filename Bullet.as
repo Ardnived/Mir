@@ -1,55 +1,1 @@
-﻿package 
-{
-	import flash.events.Event;
-
-	public class Bullet extends Entity
-	{
-		var dir:int = 0;
-		var hook:GrappleHook = new GrappleHook();
-		public function Bullet(d:int)
-		{
-			this.addEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
-			dir = d;
-		}
-
-		public override function onAddedToStage(event:Event)
-		{
-			this.removeEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
-			//onTick
-			this.addEventListener(Event.ENTER_FRAME, onTick);
-
-			addChild(hook);
-		}
-
-		public override function onTick(event:Event)
-		{
-			hook.x = this.x;
-			hook.y = this.y;
-
-			if (this.x >= stage.width || this.x <= 0)
-			{
-				this.die();
-			}
-			if (this.y >= stage.height || this.y <= 0)
-			{
-				this.die();
-			}
-			if (dir == 0)
-			{
-				this.x -=  10;
-			}
-			else
-			{
-				this.x +=  10;
-			}
-			//this.x - Game.gameContainer.hero.x / 10;
-
-			if (this.hitTestObject(Game.gameContainer.hero))
-			{
-				Game.gameContainer.hero.die();
-				this.die();
-			}
-		}
-	}
-
-}
+﻿package {	import flash.events.Event;	public class Bullet extends Entity	{		var dir:int = 0;		var isFired:Boolean;		var hook:GrappleHook = new GrappleHook();		public function Bullet()		{			this.addEventListener(Event.ADDED_TO_STAGE,onAddedToStage);			//dir = d;		}		public override function onAddedToStage(event:Event)		{			this.removeEventListener(Event.ADDED_TO_STAGE,onAddedToStage);			//onTick			this.addEventListener(Event.ENTER_FRAME, onTick);			//this.addEventListener(Event.EXIT_FRAME, reposition);			isFired = false;						addChild(hook);		}		public override function onTick(event:Event)		{			if(isFired)			{				//change dir				if( Game.gameContainer.guard.x > Game.gameContainer.hero.x)	dir = 0;				else dir = 1;								this.visible = true;				hook.x = this.x;				hook.y = this.y;					if (this.x >= stage.width || this.x <= 0)				{					resetPos();								}				if (this.y >= stage.height || this.y <= 0)				{					resetPos();				}				if (dir == 0)				{					this.x -=  10;				}				else				{					this.x +=  10;				}				//this.x - Game.gameContainer.hero.x / 10;					if (this.hitTestObject(Game.gameContainer.hero))				{					Game.gameContainer.hero.die();					resetPos();					isFired = false;				}//end if															}//end if		}//end method				public function reposition(event:Event)		{				resetPos();		}//end function				public function resetPos(){			//this.visible = false;			this.x = Game.gameContainer.guard.x;			this.y = Game.gameContainer.guard.y;		}//end emthod	}}
