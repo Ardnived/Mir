@@ -50,8 +50,8 @@
 		public override function die()
 		{
 			isDead = true;
+			Game.gameContainer.guard.lostSight(); //turning isAlert off;
 		}
-
 
 		public override function onTick(event:Event)
 		{
