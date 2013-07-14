@@ -34,8 +34,8 @@
 			super.onAddedToStage(event);
 
 			RightBumpPoint = new Point(this.width / 2,0);
-			LeftBumpPoint = new Point( -  this.width / 2,0);
-			UpBumpPoint = new Point(0, -  this.height / 2);
+			LeftBumpPoint = new Point( - this.width / 2,0);
+			UpBumpPoint = new Point(0, - this.height / 2);
 			DownBumpPoint = new Point(0,this.height / 2);
 
 			this.scaleX = Hero.SCALE;
@@ -138,6 +138,12 @@
 			{
 				this.isCrouch = false;
 			}
+			
+			if(velocityX ==0 && velocityY ==0){
+				if(!isCrouch || !isLatch){
+					STANCE = "idle";
+				}
+			}
 
 			//Max Speed
 			//Scale down if too fast;
@@ -200,12 +206,18 @@
 			}//end if
 
 			//animation cycle
+			trace(STANCE);
 			if (STANCE=="falling")
 			{
 				this.gotoAndStop(5);
 			}
 			else if (STANCE=="walking")
 			{
+				Game.sound.playSound(new Array(SoundManager.MIR_FOOT_RUN_01, 
+											   SoundManager.MIR_FOOT_RUN_02,
+											   SoundManager.MIR_FOOT_RUN_03,
+											   SoundManager.MIR_FOOT_RUN_04), SoundManager.FOOTSTEPS);
+								
 				this.gotoAndStop(2);
 			}
 			else if (STANCE=="crouching")
