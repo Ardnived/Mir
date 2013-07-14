@@ -41,7 +41,7 @@
 			this.scaleX = Hero.SCALE;
 			this.scaleY = Hero.SCALE;
 
-			STANCE = "stand";
+			STANCE = "idle";
 
 			Game.gameContainer.checkP.lastestCheckpoint.x = Game.gameContainer.scrollX;
 			Game.gameContainer.checkP.lastestCheckpoint.y = Game.gameContainer.scrollY;
@@ -133,7 +133,9 @@
 			if (Game.inputManager.justCmdPressed(InputManager.DOWN) && DownBump)
 			{
 				this.isCrouch = true;
-			}else{
+			}
+			else
+			{
 				this.isCrouch = false;
 			}
 
@@ -165,12 +167,12 @@
 			//React to Bumps
 			/*if (LeftBump && velocityX < 0)
 			{
-				velocityX *=  -0.5;
+			velocityX *=  -0.5;
 			}
-
+			
 			if (RightBump && velocityX > 0)
 			{
-				velocityX *=  -0.5;
+			velocityX *=  -0.5;
 			}*/
 
 			if (UpBump && velocityY < 0)
@@ -201,12 +203,10 @@
 			if (STANCE=="falling")
 			{
 				this.gotoAndStop(5);
-				STANCE = "idle";
 			}
 			else if (STANCE=="walking")
 			{
 				this.gotoAndStop(2);
-				STANCE = "idle";
 			}
 			else if (STANCE=="crouching")
 			{
@@ -216,12 +216,14 @@
 			else if (STANCE=="jumping")
 			{
 				this.gotoAndStop(4);
-				STANCE = "idle";
 			}
 			else if (STANCE=="climbing")
 			{
 				this.gotoAndStop(6);
-				STANCE = "idle";
+			}
+			else if (STANCE =="shooting")
+			{
+				this.gotoAndStop(7);
 			}
 			else if (STANCE=="idle")
 			{
