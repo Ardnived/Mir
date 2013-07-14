@@ -1,11 +1,1 @@
-﻿package  {
-	
-	public class Objects extends Collision{
-
-		public function Objects() {
-			// constructor code
-		}
-
-	}
-	
-}
+﻿package  {	import flash.display.MovieClip;		public class Objects extends MovieClip {		public function Objects() {			// constructor code		}	}	}
