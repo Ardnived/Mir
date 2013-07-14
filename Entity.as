@@ -3,6 +3,8 @@
 	import flash.geom.Point;
 	import flash.events.Event;
 	import flash.display.MovieClip;
+	import flash.events.TimerEvent;
+	import flash.utils.Timer;
 
 	public class Entity extends MovieClip
 	{
@@ -41,15 +43,17 @@
 			shootTimer.start();
 		}
 		//end Method;
-		
-		function readyShoot(event:TimerEvent){
+
+		function readyShoot(event:TimerEvent)
+		{
 			//allow to shoot
 			canShoot = true;
 			shootTimer.stop();
 		}
-		
-		function shootStuff(){
-			
+
+		function shootStuff()
+		{
+
 		}
 		//this method destroys the object
 		public function die()
