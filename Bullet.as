@@ -1,1 +1,0 @@
-﻿package  {		public class Bullet extends Entity {				public override function onTick(event:Event) {			if ( this.hitTestObject(Game.gameContainer) ) {				if ( this.hitTestObject(Game.hero) ) {					Game.hero.die();				}				this.die();			}		}	}	}
