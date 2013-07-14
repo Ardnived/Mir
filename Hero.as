@@ -34,8 +34,8 @@
 			super.onAddedToStage(event);
 
 			RightBumpPoint = new Point(this.width / 2,0);
-			LeftBumpPoint = new Point( - this.width / 2,0);
-			UpBumpPoint = new Point(0, - this.height / 2);
+			LeftBumpPoint = new Point( -  this.width / 2,0);
+			UpBumpPoint = new Point(0, -  this.height / 2);
 			DownBumpPoint = new Point(0,this.height / 2);
 
 			this.scaleX = Hero.SCALE;
@@ -46,8 +46,9 @@
 			Game.gameContainer.checkP.lastestCheckpoint.x = Game.gameContainer.scrollX;
 			Game.gameContainer.checkP.lastestCheckpoint.y = Game.gameContainer.scrollY;
 		}
-		
-		public override function die(){
+
+		public override function die()
+		{
 			isDead = true;
 		}
 
@@ -68,7 +69,7 @@
 			//Moving
 			if (Game.inputManager.isCmdPressed(InputManager.LEFT))
 			{
-				if (LeftBump && canLatch)
+				if ((LeftBump && canLatch))
 				{
 					if (! isCrouch)
 					{
@@ -86,7 +87,7 @@
 			}
 			if (Game.inputManager.isCmdPressed(InputManager.RIGHT))
 			{
-				if (RightBump && canLatch)
+				if ((RightBump && canLatch))
 				{
 					if (! isCrouch)
 					{
@@ -103,21 +104,21 @@
 				}
 			}
 			//Latching
-			if (isLatch && (LeftBump || RightBump))
+			if ((isLatch && (LeftBump || RightBump)))
 			{
 				STANCE = "climbing";
 				if (Game.inputManager.isCmdPressed(InputManager.UP) && ! UpBump && canLatch)
 				{
-					Game.gameContainer.move(0, -this.SPEED / 2);
+					Game.gameContainer.move(0, -  this.SPEED / 2);
 				}
 				else if (Game.inputManager.isCmdPressed(InputManager.DOWN) && ! DownBump && canLatch)
 				{
-					Game.gameContainer.move(0, this.SPEED / 2);
+					Game.gameContainer.move(0,this.SPEED / 2);
 				}
 			}
 
 			//Crouching
-			if (DownBump && isCrouch)
+			if ((DownBump && isCrouch))
 			{
 				//change to Crouch Bitmap
 				UpBumpPoint = new Point(0,0);
@@ -142,22 +143,24 @@
 			{
 				this.isCrouch = false;
 			}
-			
-			if(velocityX ==0 && velocityY ==0){
-				if(!isCrouch || !isLatch){
+
+			if (((velocityX == 0) && velocityY == 0))
+			{
+				if (! isCrouch || ! isLatch)
+				{
 					STANCE = "idle";
 				}
 			}
 
 			//Max Speed
 			//Scale down if too fast;
-			if (velocityX > this.MAXSPEED)
+			if ((velocityX > this.MAXSPEED))
 			{//moving right
 				velocityX = this.MAXSPEED;
 			}
-			else if (velocityX < (this.MAXSPEED * -1))
+			else if ((velocityX < this.MAXSPEED * -1))
 			{//moving left
-				velocityX = (this.MAXSPEED * -1);
+				velocityX = this.MAXSPEED * -1;
 			}
 
 			//stop if low speed
@@ -175,22 +178,22 @@
 			velocityY *=  this.AIRFRICTION;
 
 			//React to Bumps
-			/*if (LeftBump && velocityX < 0)
+			if ((LeftBump && velocityX < 0))
 			{
-			velocityX *=  -0.5;
+				velocityX *=  -0.5;
 			}
-			
-			if (RightBump && velocityX > 0)
-			{
-			velocityX *=  -0.5;
-			}*/
 
-			if (UpBump && velocityY < 0)
+			if ((RightBump && velocityX > 0))
+			{
+				velocityX *=  -0.5;
+			}
+
+			if ((UpBump && velocityY < 0))
 			{
 				velocityY *=  -0.5;
 			}
 
-			if (DownBump && velocityY > -2)
+			if ((DownBump && velocityY > -2))
 			{
 				velocityY *=  -0.5;
 			}
@@ -211,37 +214,34 @@
 
 			//animation cycle
 			trace(STANCE);
-			if (STANCE=="falling")
+			if ((STANCE == "falling"))
 			{
 				this.gotoAndStop(5);
 			}
-			else if (STANCE=="walking")
+			else if ((STANCE == "walking"))
 			{
-				Game.sound.playSound(new Array(SoundManager.MIR_FOOT_RUN_01, 
-											   SoundManager.MIR_FOOT_RUN_02,
-											   SoundManager.MIR_FOOT_RUN_03,
-											   SoundManager.MIR_FOOT_RUN_04), SoundManager.FOOTSTEPS);
-								
+				Game.sound.playSound(new Array(SoundManager.MIR_FOOT_RUN_01,SoundManager.MIR_FOOT_RUN_02,SoundManager.MIR_FOOT_RUN_03,SoundManager.MIR_FOOT_RUN_04),SoundManager.FOOTSTEPS);
+
 				this.gotoAndStop(2);
 			}
-			else if (STANCE=="crouching")
+			else if ((STANCE == "crouching"))
 			{
 				this.gotoAndStop(3);
 				STANCE = "idle";
 			}
-			else if (STANCE=="jumping")
+			else if ((STANCE == "jumping"))
 			{
 				this.gotoAndStop(4);
 			}
-			else if (STANCE=="climbing")
+			else if ((STANCE == "climbing"))
 			{
 				this.gotoAndStop(6);
 			}
-			else if (STANCE =="shooting")
+			else if ((STANCE == "shooting"))
 			{
 				this.gotoAndStop(7);
 			}
-			else if (STANCE=="idle")
+			else if ((STANCE == "idle"))
 			{
 				this.gotoAndStop(1);
 			}
