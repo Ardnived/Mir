@@ -4,7 +4,7 @@
 	import flash.events.TimerEvent;
 	import flash.utils.Timer;
 	import flash.geom.Point;
-	
+
 	public class Guard extends Entity
 	{
 		//alert timer
@@ -21,7 +21,7 @@
 		var dist:Number = 0;
 		var isStun:Boolean = false;
 
-		public function Guard()
+		public function Guard():void
 		{
 			this.addEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
 		}
@@ -35,9 +35,15 @@
 			//duration for alert
 			alertTimer = new Timer(5000);
 			alertTimer.addEventListener("timer",lostSight);
+			
+			patrolPoints.push(new Point(this.x, this.y));
+			patrolPoints.push(new Point(this.x + 600, this.y));
 
-			// set first destination
-				getNextDestination();
+			// set first destination;
+			getNextDestination();
+			
+			//onTick
+			this.addEventListener(Event.ENTER_FRAME, onTick);
 		}
 
 		public function pushPartolPoints(startX:Number,startY:Number,endX:Number,endY:Number)
@@ -62,14 +68,14 @@
 
 		public override function onTick(event:Event)
 		{
-			super.onTick(event);
+			//super.onTick(event);
 
 			detectPlayer();
 
 			//check for player
 			if (isAlert)
 			{
-				chasePlayer();
+				//chasePlayer();
 				shootPlayer();
 			}
 			else
@@ -88,10 +94,10 @@
 
 		private function shootPlayer()
 		{
-			if (isAlert)
+			if (isAlert && canShoot)
 			{
 				//shoot
-				var shock = new Bullet  ;
+				var shock = new Bullet();
 				shock.x = this.x;
 				shock.y = this.y;
 				stage.addChild(shock);
@@ -106,6 +112,8 @@
 			{
 				//set alert
 				isAlert = true;
+				canShoot = true;
+				this.alert.play();
 			}
 			else
 			{
@@ -128,18 +136,24 @@
 		private function updatePosition():void
 		{
 			// if close to target
-			if ((dist < 10))
+			if ((dist < 5))
 			{
 				getNextDestination();
 			}
 
 			// get distance
-			dist = getDistance((destinationX - this.x),destinationY - this.y);
+			dist = getDistance(destinationX - this.x,destinationY - this.y);
 
 			// update velocity
-			velocityX = (destinationX - this.x) / dist * SPEED;
-			velocityY = (destinationY - this.y) / dist * SPEED;
-
+			velocityX = (destinationX - this.x) / dist * 3;
+			velocityY = (destinationY - this.y) / dist * 3;
+			
+			if(this.x - destinationX < 0){
+				this.gotoAndStop(2);
+			}else{
+				this.gotoAndStop(1);
+			}
+			
 			// update position
 			this.x +=  velocityX;
 			this.y +=  velocityY;
