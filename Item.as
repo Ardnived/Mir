@@ -1,11 +1,1 @@
-﻿package  {
-	
-	public class Item extends GrappleItem{
-
-		public function Item() {
-			// constructor code
-		}
-
-	}
-	
-}
+﻿package  {	import flash.events.Event;	import flash.geom.Point;		public class Item extends GrappleItem{		var ourMousePoint:Point;				public function Item() {			// constructor code			this.addEventListener(Event.ENTER_FRAME,onTick);		}//end function				function onTick(event:Event)		{				if (this.hitTestPoint(Game.inputManager.mousePos.x,Game.inputManager.mousePos.y)){				this.visible = false;				trace("Item picked");				Game.gameContainer.hero.canIWin = true;			}//end if		}//end function	}//end method	}
