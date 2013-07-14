@@ -96,8 +96,10 @@
 				trace("shooting");
 				COOLDOWN = 0;
 				//var shock = new Bullet(this.currentFrame);
-				//shock.x = this.x;
-				//shock.y = this.y;
+				//shock.x = this.x - Game.gameContainer.levelMap.x;
+				//shock.y = this.y - Game.gameContainer.levelMap.y;
+				
+				//trace(shock.x, shock.y);
 
 				Game.sound.playSound(SoundManager.GUARD_STUN_FIRE, SoundManager.EFFECT);
 				//stage.addChild(shock);

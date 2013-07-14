@@ -1,6 +1,4 @@
-﻿
-﻿;
-package 
+﻿package 
 {
 	import flash.events.Event;
 	import flash.events.KeyboardEvent;
@@ -135,6 +133,8 @@ package
 			if (Game.inputManager.justCmdPressed(InputManager.DOWN) && DownBump)
 			{
 				this.isCrouch = true;
+			}else{
+				this.isCrouch = false;
 			}
 
 			//Max Speed
@@ -163,24 +163,24 @@ package
 			velocityY *=  this.AIRFRICTION;
 
 			//React to Bumps
-			if (LeftBump && velocityX < 0)
+			/*if (LeftBump && velocityX < 0)
 			{
-				velocityX *=  -0.2;
+				velocityX *=  -0.5;
 			}
 
 			if (RightBump && velocityX > 0)
 			{
-				velocityX *=  -0.2;
-			}
+				velocityX *=  -0.5;
+			}*/
 
 			if (UpBump && velocityY < 0)
 			{
-				velocityY *=  -0.2;
+				velocityY *=  -0.5;
 			}
 
 			if (DownBump && velocityY > -2)
 			{
-				velocityY *=  -0.2;
+				velocityY *=  -0.5;
 			}
 
 			//firing Hook

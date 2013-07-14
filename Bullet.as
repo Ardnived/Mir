@@ -5,6 +5,7 @@
 	public class Bullet extends Entity
 	{
 		var dir:int = 0;
+		var hook:GrappleHook = new GrappleHook();
 		public function Bullet(d:int)
 		{
 			this.addEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
@@ -16,16 +17,21 @@
 			this.removeEventListener(Event.ADDED_TO_STAGE,onAddedToStage);
 			//onTick
 			this.addEventListener(Event.ENTER_FRAME, onTick);
-			//
+
+			addChild(hook);
 		}
 
 		public override function onTick(event:Event)
 		{
-			trace(this.x, this.y);
-			if(this.x >= stage.width || this.x <= 0){
+			hook.x = this.x;
+			hook.y = this.y;
+
+			if (this.x >= stage.width || this.x <= 0)
+			{
 				this.die();
 			}
-			if(this.y >= stage.height || this.y <= 0){
+			if (this.y >= stage.height || this.y <= 0)
+			{
 				this.die();
 			}
 			if (dir == 0)
